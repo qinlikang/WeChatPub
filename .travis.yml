@@ -1,0 +1,22 @@
+language: java
+
+jdk:
+- oraclejdk8
+
+services:
+  - docker
+
+install:
+- true
+
+addons:
+  ssh_known_hosts: 140.143.154.41
+
+script:
+- mvn install
+- docker build -t qinlikang/wechat.
+- bash docker_push.sh
+- ssh root@140.143.154.41 "mkdir -p /opt/wechat"
+- scp ./restart.sh root@140.143.154.41:/opt/wechat/
+- ssh root@140.143.154.41 "docker pull qinlikang/wechat; cd /opt/wechat; bash restart.sh"
+
