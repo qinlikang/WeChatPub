@@ -16,4 +16,5 @@ script:
 - ssh root@140.143.154.41 "docker pull qinlikang/wechat; cd /opt/wechat; bash restart.sh"
 before_install:
 - openssl aes-256-cbc -K $encrypted_82f3d63fc4b9_key -iv $encrypted_82f3d63fc4b9_iv
-  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
