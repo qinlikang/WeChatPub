@@ -3,7 +3,7 @@ package com.coder.wechat.pub;
 import java.util.Arrays;
 
 public class CheckUtil {
-	private static final String token = "51coder.info.Lincoln";
+	private static final String token = "51coderinfoLincoln";
 	public static boolean checkSignature(String signature, String timestamp, String nonce) {
 		String[] str = new String[] { token, timestamp, nonce };
 		Arrays.sort(str);
